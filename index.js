@@ -15,7 +15,7 @@ inquirer
 
     inquirer
     .prompt([
-    //Engineer 
+    //Engineer,Intern,manager. 
     {
       type: 'input',
       name: 'name',
@@ -33,7 +33,7 @@ inquirer
     },
     {
       type: 'input',
-      name: 'github',
+      name: 'github, school, office',
       message: 'What is your Github name?, School?, Office?',
     },
 
