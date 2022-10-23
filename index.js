@@ -3,6 +3,11 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 
+const Manager = require('./lib/Manager')
+const Intern = require('./lib/Intern')
+const Engineer = require('./lib/Engineer')
+
+
 //Created an array of questions for user input = [];
 inquirer
   .prompt([
@@ -13,40 +18,39 @@ inquirer
     //   choices: ['MIT License', new inquirer.Separator(), 'Apache License 2.0', new inquirer.Separator(), 'GNU General Public License v3.0']
     // },
 
-    inquirer
+  inquirer
     .prompt([
-    //Engineer,Intern,manager. 
-    {
-      type: 'input',
-      name: 'name',
-      message: 'What is your name?'
-    },
-    {
-      type: 'input',
-      name: 'id',
-      message: 'What is your id?',
-    },
-    {
-      type: 'input',
-      name: 'email',
-      message: 'What is your email?',
-    },
-    {
-      type: 'input',
-      name: 'github, school, office',
-      message: 'What is your Github name?, School?, Office?',
-    },
+      //Engineer,Intern,manager. 
+      {
+        type: 'input',
+        name: 'name',
+        message: 'What is your name?'
+      },
+      {
+        type: 'input',
+        name: 'id',
+        message: 'What is your id?',
+      },
+      {
+        type: 'input',
+        name: 'email',
+        message: 'What is your email?',
+      },
+      {
+        type: 'input',
+        name: 'github, school, office',
+        message: 'What is your Github name?, School?, Office?',
+      },
 
+    ])
+    .then((answers) => {
+      const readmeContent = generateReadme(answers);
 
-  ])
-  .then((answers) => {
-    const readmeContent = generateReadme(answers);
+      fs.writeFile('README.md', readmeContent, (err) =>
+        err ? console.log(err) : console.log('Successfully created README!')
 
-    fs.writeFile('README.md', readmeContent, (err) =>
-      err ? console.log(err) : console.log('Successfully created README!')
-
-    )
-  })
+      )
+    })
 
 
 
@@ -89,7 +93,7 @@ Email me with any questions [${email}](mailto:${email}) <br/>
 
 `
 
-// GIVEN a command-line application that accepts user input  **USING INQUIRER TO ACCEPT USER INPUT 
+// GIVEN a command-line application that accepts user input  **USING INQUIRER TO ACCEPT USER INPUT
 // WHEN I am prompted for my team members and their information
 // THEN an HTML file is generated that displays a nicely formatted team roster based on user input
 // **USING ALL THAT DATA CREATE AN HTML FILE
@@ -128,10 +132,10 @@ Email me with any questions [${email}](mailto:${email}) <br/>
 
 
 //CREATE AND SPLIT UP HTML CARD FOR EACH EMPLOYEE BASED ON THEIR TYPE, TAKE THOSE CARDS AND INJECT THEM INTO THE <BODY> OF A FINAL HTML TEMPLATE... .SPLIT??
-// THAT TEMPLATE IS WHAT I'LL WRITE TO THE FINAL HTML FILE 
+// THAT TEMPLATE IS WHAT I'LL WRITE TO THE FINAL HTML FILE
 
 
-//CREATE CLASSES THAT ARE 
+//CREATE CLASSES THAT ARE
 //
 //
 //
