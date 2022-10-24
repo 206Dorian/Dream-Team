@@ -51,73 +51,44 @@ function buildTeam() {
         type: 'list',
         name: 'selection',
         message: 'What employee type are you adding?',
-        choices: ['Engineer', new inquirer.Separator(), 'Employee', new inquirer.Separator(), 'Intern', new inquirer.Separator(), 'Finshed adding employees?']
+        choices: ['Engineer', new inquirer.Separator(), 'Intern', new inquirer.Separator(), 'Finshed adding employees?']
       }
     ])
     .then((answers) => {
       switch (answers.selection) {
         case 'Engineer': engineerSelection();
           break;
-        case 'Employee': employeeSelection();
-          break;
         case 'Intern': internSelection()
+        break;
         default:
           renderTeam()
-
       }
     })
 }
 
-start()
-function start() {
+
+function engineerSelection() {
   inquirer
     .prompt([
       {
         type: 'input',
         name: 'name',
-        message: 'what is your name?'
+        message: 'what is their name?'
       },
       {
         type: 'input',
         name: 'id',
-        message: 'What is your id?',
+        message: 'What is their id?',
       },
       {
         type: 'input',
         name: 'email',
-        message: 'What is your email?',
-      },
-    ])
-    .then((answers) => {
-      const employee = new Employee(answers.name, answers.id, answers.email)
-      dreamTeam.push(employee)
-      buildTeam()
-    }
-    )
-}
-start()
-function start() {
-  inquirer
-    .prompt([
-      {
-        type: 'input',
-        name: 'name',
-        message: 'what is your name?'
-      },
-      {
-        type: 'input',
-        name: 'id',
-        message: 'What is your id?',
-      },
-      {
-        type: 'input',
-        name: 'email',
-        message: 'What is your email?',
+        message: 'What is their email?',
       },
       {
         type: 'input',
         name: 'office',
-        message: 'What is your Github?',
+        message: 'What is their Github?',
       },
     ])
     .then((answers) => {
@@ -128,41 +99,40 @@ function start() {
     )
 }
 
-start()
-function start() {
+function internSelection() {
   inquirer
     .prompt([
       {
         type: 'input',
         name: 'name',
-        message: 'what is your name?'
+        message: 'what is their name?'
       },
       {
         type: 'input',
         name: 'id',
-        message: 'What is your id?',
+        message: 'What is their id?',
       },
       {
         type: 'input',
         name: 'email',
-        message: 'What is your email?',
+        message: 'What is their email?',
       },
       {
         type: 'input',
         name: 'office',
-        message: 'What is your School?',
+        message: 'What is their School?',
       },
     ])
     .then((answers) => {
-      const engineer = new Intern(answers.name, answers.id, answers.email, answers.school)
-      dreamTeam.push(Intern)
+      const intern = new Intern(answers.name, answers.id, answers.email, answers.school)
+      dreamTeam.push(intern)
       buildTeam()
     }
     )
 }
 
 function renderTeam() {
-  fs.writeFile('index.html', writeHTMLFile, (dreramTeam), (err) =>
+  fs.writeFile('index.html', writeHTMLFile, (dreamTeam), (err) =>
     err ? console.log(err) : console.log('Success!')
   );
 }
