@@ -12,4 +12,4 @@ test('Does it set name via constructor arguments', ()=>{
     });
 
     //test for id
-    //test for oemail
+    //test for email
