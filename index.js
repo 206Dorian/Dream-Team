@@ -131,7 +131,7 @@ function internSelection() {
 }
 
 function renderTeam() {
-  fs.writeFile('index.html', writefinalHtml(), (err) =>
+  fs.writeFile('index.html', writefinalHtml(dreamTeam), (err) =>
     err ? console.log(err) : console.log('Success!')
   );
 }

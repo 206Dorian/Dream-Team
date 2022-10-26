@@ -1,4 +1,5 @@
-function writefinalHtml (dreamTeam){
+function writefinalHtml(data) {
+
   return `<!DOCTYPE html>
   <html lang="en">
   
@@ -12,52 +13,58 @@ function writefinalHtml (dreamTeam){
   </head>
   
   <body>
+${createCards(data)}
 
-   ${engineerCards}
-
-  <p> DREAM TEAM</p>
+  <p> DREAM TEAM </p>
 
   </body>
   </html>
   `
 }
+
+
+function createCards(dreamTeam) {
+  const individuals = []
+  dreamTeam.forEach(member => {
+    if (member.getRole() == "Manager") {
+      individuals.push(managerCard(member.name, member.id, member.email, member.office))
+    }
+    if (member.getRole() == "Engineer") {
+      console.log(member.github)
+      individuals.push(engineerCard(member.name, member.id, member.email, member.github))
+    }
+    if (member.getRole() == "Intern") {
+      console.log(member.school)
+      individuals.push(internCard(member.name, member.id, member.email, member.school))
+    }
+  });
+  console.log(individuals)
+  return individuals.join("")
+}
+
+function managerCard(name, id, email, office) {
+  return`<div class="card">
+  <div class="card-content">
+    <div class="content">
+      ${name}
+      ${id}
+      ${email}
+      ${office}
+    </div>
+  </div>
+</div>`
+}
+
+function engineerCard(name, id, email, github) {
+  return `<card>
+  ${name, id, email, github} </card>`
+}
+
+function internCard(name, id, email, school) {
+  return `<card>
+  ${name, id, email, school} </card>`
+}
+
 module.exports = writefinalHtml
 
 
-
-// function generateCards (dreamTeam){
-//   //separate team based on employee type *how to split up array  by type?*
-
-//   //generte a separate card for each employee type 
-// //push all cards into an array
-// //return that array
-// }
-
-// function managerCards  ()
-// return a card
-
-function engineerCards (){
-    `<card>
-${name, id, email, github} </card>`
-}
-
-// function internCards ()
-
-
-// const generateHTMLFile = ({ title, description, installation, usage, license, contributing, tests, email, github }) =>
-//   `# ${title}
-// ${renderLicenseBadge(license)}
-// ## Table of Contents -
-// * [Description](#description)
-// * [Installation](#installation)
-// * [Usage](#usage)
-// * [License](#license)
-// * [Contributing](#contributing)
-// * [Test](#tests)
-// * [Questions](#questions)
-
-// ## Engineer -
-// ${description}
-
-// ## Installation -
-// ${installation}
