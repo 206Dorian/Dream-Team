@@ -11,5 +11,3 @@ test('Does it set name via constructor arguments', ()=>{
     expect (e.name).toBe(name)
     });
 
-    //test for id
-    //test for email

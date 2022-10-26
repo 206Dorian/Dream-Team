@@ -9,19 +9,20 @@ function writefinalHtml(data) {
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
 
-    <title>Script Tags and Console Log</title>
+    <title>DREAM TEAM</title>
   </head>
   
   <body>
-${createCards(data)}
 
-  <p> DREAM TEAM </p>
+  <h1 class="title is-1">DREAM TEAM</h1>
+  <br><br>
+
+${createCards(data)}
 
   </body>
   </html>
   `
 }
-
 
 function createCards(dreamTeam) {
   const individuals = []
@@ -43,26 +44,63 @@ function createCards(dreamTeam) {
 }
 
 function managerCard(name, id, email, office) {
-  return`<div class="card">
+  return`<div class="card has-background-primary">
+  <header class="card-header>
+  <p class="card-header-title>
+MANAGER
+  </p>
   <div class="card-content">
     <div class="content">
-      ${name}
-      ${id}
-      ${email}
-      ${office}
+      Name: ${name}
+<br>
+      ID: ${id}
+<br>
+      Email : ${email}
+<br>
+      Office : ${office}
     </div>
   </div>
 </div>`
 }
 
 function engineerCard(name, id, email, github) {
-  return `<card>
-  ${name, id, email, github} </card>`
+  return `<div class="card has-background-info">
+  <header class="card-header>
+  <p class="card-header-title>
+ENGINEER
+  </p>
+  <div class="card-content">
+    <div class="content">
+      name: ${name}
+<br>
+      ID: ${id}
+<br>
+      Email : ${email}
+<br>
+      Github : ${github}
+    </div>
+  </div>
+</div>`
 }
 
 function internCard(name, id, email, school) {
-  return `<card>
-  ${name, id, email, school} </card>`
+  return `<div class="card has-background-link">
+  <header class="card-header>
+  <p class="card-header-title>
+INTERN
+  </p>
+  <div class="card-content">
+    <div class="content">
+      name: ${name}
+<br>
+      ID: ${id}
+<br>
+      Email : ${email}
+<br>
+      School : ${school}
+    </div>
+  </div>
+</div>`
 }
 
 module.exports = writefinalHtml

@@ -8,8 +8,7 @@ expect (typeof(e)).toBe('object')
 test('Does it set name via constructor arguments', ()=>{
     const name = 0;
     const e = new Employee(name);
-    expect (e.name).toBe("hi")
+    expect (e.name).toBe(name)
     });
 
-    //test for id
-    //test for email
+   

@@ -86,7 +86,7 @@ function engineerSelection() {
       },
       {
         type: 'input',
-        name: 'office',
+        name: 'github',
         message: 'What is their Github?',
       },
     ])
@@ -118,7 +118,7 @@ function internSelection() {
       },
       {
         type: 'input',
-        name: 'office',
+        name: 'school',
         message: 'What is their School?',
       },
     ])
@@ -131,7 +131,7 @@ function internSelection() {
 }
 
 function renderTeam() {
-  fs.writeFile('index.html', writefinalHtml(dreamTeam), (err) =>
+  fs.writeFile('./dist/index.html', writefinalHtml(dreamTeam), (err) =>
     err ? console.log(err) : console.log('Success!')
   );
 }
