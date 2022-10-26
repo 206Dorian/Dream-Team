@@ -9,13 +9,13 @@ function writefinalHtml(data) {
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma-rtl.min.css">
 
-    <title>DREAM TEAM</title>
+    <title> DREAM TEAM</title>
   </head>
   
   <body>
 
-  <h1 class="title is-1">DREAM TEAM</h1>
-  <br><br>
+  <h1 class="title is-1 has-text-centered has-background-info-dark">WELCOME TO MY DREAM TEAM PAGE</h1>
+  <br>
 
 ${createCards(data)}
 
